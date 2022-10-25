@@ -1,4 +1,4 @@
-namespace Bullspit.CertManager.Web.Models;
+namespace Bullspit.CertTracker.Web.Models;
 
 public class ErrorViewModel
 {

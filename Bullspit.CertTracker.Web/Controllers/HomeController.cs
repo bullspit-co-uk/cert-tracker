@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Bullspit.CertManager.Web.Models;
+using Bullspit.CertTracker.Web.Models;
 
-namespace Bullspit.CertManager.Web.Controllers;
+namespace Bullspit.CertTracker.Web.Controllers;
 
 public class HomeController : Controller
 {
