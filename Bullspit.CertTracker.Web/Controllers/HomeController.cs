@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bullspit.CertTracker.Web.Models;
+using Bullspit.CertTracker.Web.Models.Home;
 
 namespace Bullspit.CertTracker.Web.Controllers;
 
@@ -15,12 +16,14 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        IndexPageVM model = new IndexPageVM();
+
+        return View(model);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View(new ErrorPageVM { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
