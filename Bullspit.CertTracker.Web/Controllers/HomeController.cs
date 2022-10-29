@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using Bullspit.CertTracker.Web.Models;
 using Bullspit.CertTracker.Web.Models.Home;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Bullspit.CertTracker.Web.Controllers;
 
