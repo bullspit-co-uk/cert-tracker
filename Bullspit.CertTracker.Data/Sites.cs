@@ -7,7 +7,12 @@ namespace Bullspit.CertTracker.Data
     public class Sites : BaseDAO
     {
         public Sites()
-        { }
+        {
+            using (CertContext db = new CertContext())
+            {
+                db.Database.EnsureCreated();
+            }
+        }
 
         public IList<Site> Get(int take = PAGE_SIZE, int skip = 0)
         {

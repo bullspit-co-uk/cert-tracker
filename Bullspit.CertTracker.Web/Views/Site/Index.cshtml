@@ -1,0 +1,23 @@
+@using Bullspit.CertTracker.Web.Models.Site
+@using Bullspit.CertTracker.Web.Models.Shared
+@model IndexVM
+
+<div class="row">
+    <div class="col">
+        @Html.DisplayNameFor(m => m.SiteHeader.Url)
+    </div>
+    <div class="col">
+        @Html.DisplayNameFor(m => m.SiteHeader.Name)
+    </div>
+</div>
+@foreach(SiteVM site in Model.Sites)
+{
+<div class="row">
+    <div class="col">
+        @Html.DisplayFor(m => site.Url)
+    </div>
+    <div class="col">
+        @Html.DisplayFor(m => site.Name)
+    </div>
+</div>
+}

@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bullspit.CertTracker.Data.Store
@@ -8,7 +11,8 @@ namespace Bullspit.CertTracker.Data.Store
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=Sharable;Mode=Memory;Cache=Shared");
+            string? binFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            optionsBuilder.UseSqlite($"Data Source={binFolder}/cert-tracker.db;Cache=Shared");
         }
     }
 
