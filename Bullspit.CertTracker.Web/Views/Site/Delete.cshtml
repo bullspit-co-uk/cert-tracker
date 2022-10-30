@@ -1,0 +1,16 @@
+@using Bullspit.CertTracker.Web.Models.Shared
+@model SiteVM
+
+<div class="modal-header">
+    <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Site?</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+</div>
+<div class="modal-body">
+    @Html.DisplayFor(m => m)
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+    <form method="POST" asp-action="Delete" asp-route-id="@Model.Url">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    <form>
+</div>

@@ -27,14 +27,39 @@
 </div>
 @foreach(SiteVM site in Model.Sites)
 {
-<div class="row">
+<div class="row mb-2">
     <div class="col">
-        @Html.DisplayFor(m => site.Name)
+        <a asp-controller="site" asp-action="details" asp-route-id="@site.Url">
+            @Html.DisplayFor(m => site.Name)
+        </a>
     </div>
     <div class="col">
         @Html.DisplayFor(m => site.Url)
     </div>
     <div class="col">
+        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="@site.Url">
+            <i class="fa-solid fa-trash-can"></i>
+        </button>
     </div>
 </div>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        const deleteModal = document.getElementById('deleteModal');
+        deleteModal.addEventListener('show.bs.modal', event => {
+            const id = event.relatedTarget.getAttribute('data-bs-id')
+            $('#deleteModal .modal-content').load('@Url.Action("Delete")/' + id + '?partial=true')
+        })
+    </script>
 }

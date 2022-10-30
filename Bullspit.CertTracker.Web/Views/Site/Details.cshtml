@@ -1,0 +1,19 @@
+@using Bullspit.CertTracker.Web.Models.Shared
+@model SiteVM
+
+<h2>
+    <i class="fa-solid fa-sitemap"></i>
+    Site
+    <small class="text-muted">Details</small>
+</h2>
+
+@Html.DisplayFor(m => m)
+
+<div class="row">
+    <div class="col">
+        <a class="btn btn-outline-secondary" type="button" asp-action="Index">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+</div>

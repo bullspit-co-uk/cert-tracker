@@ -35,6 +35,35 @@ namespace Bullspit.CertTracker.Web.Controllers
             return View(result);
         }
 
+        public IActionResult Details(string id, bool partial = false)
+        {
+            SiteVM? result = null;
+
+            Site? site = SitesCollection.Get(id);
+
+            if (site != null)
+            {
+                result = new SiteVM()
+                {
+                    Url = site.Url,
+                    Name = site.Name
+                };
+
+                if (!partial)
+                {
+                    return View(result);
+                }
+                else
+                {
+                    return PartialView(result);
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         public IActionResult Add()
         {
             SiteAddVM result = new SiteAddVM();
@@ -63,6 +92,52 @@ namespace Bullspit.CertTracker.Web.Controllers
             else
             {
                 return View(site);
+            }
+        }
+
+        public IActionResult Delete(string id, bool partial = false)
+        {
+            SiteVM? result = null;
+
+            Site? site = SitesCollection.Get(id);
+
+            if (site != null)
+            {
+                result = new SiteVM()
+                {
+                    Url = site.Url,
+                    Name = site.Name
+                };
+
+                if (!partial)
+                {
+                    return View(result);
+                }
+                else
+                {
+                    return PartialView(result);
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Delete(string id)
+        {
+            Site? site = SitesCollection.Get(id);
+
+            if (site != null)
+            {
+                SitesCollection.Delete(site);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return NotFound();
             }
         }
     }
