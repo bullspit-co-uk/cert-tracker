@@ -2,22 +2,39 @@
 @using Bullspit.CertTracker.Web.Models.Shared
 @model IndexVM
 
-<div class="row">
+<h2>
+    <i class="fa-solid fa-sitemap"></i>
+    Site
+    <small class="text-muted">List</small>
+</h2>
+
+<div class="mb-2">
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i>
+        Add
+    </a>
+</div>
+
+<div class="row fw-bold">
+    <div class="col">
+        @Html.DisplayNameFor(m => m.SiteHeader.Name)
+    </div>
     <div class="col">
         @Html.DisplayNameFor(m => m.SiteHeader.Url)
     </div>
     <div class="col">
-        @Html.DisplayNameFor(m => m.SiteHeader.Name)
     </div>
 </div>
 @foreach(SiteVM site in Model.Sites)
 {
 <div class="row">
     <div class="col">
+        @Html.DisplayFor(m => site.Name)
+    </div>
+    <div class="col">
         @Html.DisplayFor(m => site.Url)
     </div>
     <div class="col">
-        @Html.DisplayFor(m => site.Name)
     </div>
 </div>
 }

@@ -34,5 +34,36 @@ namespace Bullspit.CertTracker.Web.Controllers
 
             return View(result);
         }
+
+        public IActionResult Create()
+        {
+            SiteCreateVM result = new SiteCreateVM();
+
+            return View(result);
+        }
+
+        [HttpPost]
+        public IActionResult Create(SiteCreateVM site)
+        {
+            bool isSuccess = false;
+
+            if (ModelState.IsValid)
+            {
+                isSuccess = SitesCollection.Create(new Site()
+                {
+                    Url = site.Url,
+                    Name = site.Name
+                });
+            }
+
+            if (isSuccess)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(site);
+            }
+        }
     }
 }

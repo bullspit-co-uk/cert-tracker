@@ -1,0 +1,28 @@
+@using Bullspit.CertTracker.Web.Models.Site
+@using Bullspit.CertTracker.Web.Models.Shared
+@model SiteCreateVM
+
+<h2>
+    <i class="fa-solid fa-sitemap"></i>
+    Site
+    <small class="text-muted">Add new</small>
+</h2>
+
+<form method="POST">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @Html.EditorFor(m => m)
+<div class="row">
+    <div class="col">
+        <a class="btn btn-outline-secondary" type="button" asp-action="Index">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    <div class="col text-end">
+        <button class="btn btn-success">
+            <i class="fa-solid fa-plus"></i>
+            Add
+        </button>
+    </div>
+</div>
+</form>
