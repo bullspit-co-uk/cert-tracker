@@ -35,15 +35,15 @@ namespace Bullspit.CertTracker.Web.Controllers
             return View(result);
         }
 
-        public IActionResult Create()
+        public IActionResult Add()
         {
-            SiteCreateVM result = new SiteCreateVM();
+            SiteAddVM result = new SiteAddVM();
 
             return View(result);
         }
 
         [HttpPost]
-        public IActionResult Create(SiteCreateVM site)
+        public IActionResult Add(SiteAddVM site)
         {
             bool isSuccess = false;
 

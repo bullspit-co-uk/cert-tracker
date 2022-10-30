@@ -1,6 +1,6 @@
 @using Bullspit.CertTracker.Web.Models.Site
 @using Bullspit.CertTracker.Web.Models.Shared
-@model SiteCreateVM
+@model SiteAddVM
 
 <h2>
     <i class="fa-solid fa-sitemap"></i>
@@ -26,3 +26,8 @@
     </div>
 </div>
 </form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial.cshtml">
+}
